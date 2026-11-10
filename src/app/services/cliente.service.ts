@@ -25,4 +25,12 @@ export class ClienteService {
     return this.http.delete<void>(`${this.API}/${id}`);
   }
 
+  buscarPorId(id: string): Observable<Cliente> {
+    return this.http.get<Cliente>(`${this.API}/${id}`);
+  }
+
+  editar(cliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(`${this.API}/${cliente.id}`, cliente);
+  }
+
 }
